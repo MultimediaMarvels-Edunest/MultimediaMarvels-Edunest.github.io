@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+        <script src="../navigation.js"></script>
+		<title>Mentors</title>
+    </head>
+    <body>
+    <div class="site-content">
+        <header>
+            <div id="nav-container"></div>
+		</header>
+        <section class="intro">
+            <div class="row">
+				<h2>Mentors</h2>
+			</div>
+        </section>
+        </div>
+        <section>
+            <!-- Mentor Filter -->
+            <div class="row">
+                <select id="mentorFilter" onchange="filterMentors()">
+                    <option value="all">All Subjects</option>
+                    <option value="math">Math</option>
+                    <option value="science">Science</option>
+                    <option value="history">History</option>
+                    <option value="literature">Literature</option>
+                </select>
+            </div>
+
+            <!-- Mentors List -->
+            <div class="row">
+                <div class="mentor" data-subject="math">
+                    <h3>John Doe</h3>
+                    <p>Email: john.doe@example.com</p>
+                    <p>Subject: Math</p>
+                </div>
+                <div class="mentor" data-subject="science">
+                    <h3>Jane Smith</h3>
+                    <p>Email: jane.smith@example.com</p>
+                    <p>Subject: Science</p>
+                </div>
+                <!-- ... Add more mentor divs as needed ... -->
+            </div>
+
+            <!-- Mentor Signup Form -->
+            <div class="row">
+                <h2>Signup as a Mentor</h2>
+                <form id="mentorSignupForm">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <select name="subject">
+                        <option value="math">Choose a Subject</option>
+                        <option value="math">Math</option>
+                        <option value="science">Science</option>
+                        <option value="history">History</option>
+                        <option value="literature">Literature</option>
+                    </select>
+                    <button type="submit">Signup</button>
+                </form>
+            </div>
+
+        </section>
+    <footer>
+            <div class="row">
+                <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
+            </div>
+    </footer>
+    <script>
+        function filterMentors() {
+            const selectedSubject = document.getElementById('mentorFilter').value;
+            const mentors = document.querySelectorAll('.mentor');
+
+            mentors.forEach(mentor => {
+                if (selectedSubject === 'all' || mentor.getAttribute('data-subject') === selectedSubject) {
+                    mentor.style.display = 'block';
+                } else {
+                    mentor.style.display = 'none';
+                }
+            });
+        }
+
+        // On page load, display all mentors
+        window.onload = function() {
+            filterMentors();
+        }
+    </script>
+
+    </body>
+</html>

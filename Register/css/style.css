@@ -1,0 +1,420 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*border: 1px dashed grey;*/
+}
+
+body,
+html {
+    background-color: #fff;
+    font-family: Lato, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-content {
+    flex: 1;
+}
+
+.intro {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(img/cover.jpg);
+    background-image: -o-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/cover.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/cover.jpg);
+    background-size: cover;
+    color: #fff;
+    background-attachment: fixed;
+    padding: 100px 0px;
+    margin-bottom: 20px;
+}
+
+/* Reusable components */
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 1%;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.courses .row {
+    display: flex;  /* Add this line */
+    justify-content: space-between;  /* Add this line */
+}
+
+.box {
+    flex: 1;
+    background-color: rgba(178, 216, 178, 0.39); /* light green background */
+    border-radius: 10px; /* slightly curved edges */
+    display: block; /* make the entire tile clickable */
+    text-decoration: none; /* remove the underline from the hyperlink */
+    transition: transform 0.3s, box-shadow 0.3s; /* smooth transitions for hover effects */
+    padding: 1%;
+}
+
+.box:hover {
+    transform: translateY(-10px); /* slight lift effect on hover */
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1); /* shadow on hover */
+}
+
+.box h2, .box h3 {
+    color: #000; /* black text color */
+    text-align: center; /* centered text */
+    margin: 15px; /* space around the text */
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin: 30px 0px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 5px;
+    color:#2980b9;
+}
+
+/* Main navigation */ 
+
+.main-nav {
+    float: left;
+    list-style: none;
+    margin-top: 40px;
+}
+.main-nav li {
+    display: inline-block;
+    margin-left: 40px;
+}
+.main-nav li a:link,
+.main-nav li a:visited {
+    color: #000;
+    text-decoration: none;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: border-bottom 0.2s;
+    -o-transition: border-bottom 0.2s;
+    transition: border-bottom 0.2s;
+    padding: 8px 0;
+}
+.main-nav li a:active,
+.main-nav li a:hover {
+    border-bottom: 2px solid #2980b9;
+}
+
+.searchbar {
+    float: right;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.searchbar input[type="search"] {
+    padding: 10px 40px 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.searchbar input[type="search"]:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-color: #999;
+}
+
+.search-icon {
+    position: absolute; /* Changed from relative to absolute */
+    right: 20px; /* Added this line to position it at the right inside the search bar */
+    top: 48%; /* Keeps it vertically centered */
+    transform: translateY(-50%); /* To perfectly center it vertically */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+}
+
+.search-icon:hover {
+    color: #666;
+}
+
+
+
+.icon-button, .searchbar input[type="submit"] { /* Necessary? */
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.icon-button:hover {
+    background-color: #3498db;
+}
+
+.icon-button i {
+    font-size: 18px;
+}
+
+
+/* Logo */ 
+
+.logo {
+    height: 100px;
+    width: auto;
+    float: left;
+    margin-top: 5px;
+}
+
+/* Footer */
+
+footer {
+    background-color: #000;
+    color: #fff;
+    font-size: 80%;
+    padding: 20px;
+    text-align: center;
+}
+
+/* courses */
+
+.courses {
+    margin-bottom: 50px;
+}
+
+.courses img {
+    margin-bottom: 10px;
+}
+
+.courses p {
+    margin-bottom: 5px;
+}
+
+.courses h3 {
+    text-align: center;
+}
+
+.line {
+    margin-bottom: 5px;
+}
+
+/* Normalise */
+
+input[type="search"] {
+	/*-webkit-appearance: textfield;*/
+	box-sizing: content-box;
+}
+
+input {
+	line-height: normal;
+}
+
+button, input, optgroup, select, textarea {
+	color: inherit;
+	font: inherit;
+	margin: 0;
+}
+
+button, html, input[type="button"], input[type="reset"], input[type="submit"] {
+	/*-webkit-appearance: button;*/
+	cursor: pointer;
+}
+
+/* Grid */
+
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/* Row */
+
+.row {
+    zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.row:before,
+.row:after {
+    content:"";
+    display:table;
+}
+.row:after {
+    clear:both;
+}
+
+/* Col */
+
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+
+.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+
+/* Span 2 */
+
+.span-2-of-2 {
+	width: 100%;
+}
+
+.span-1-of-2 {
+	width: 49.2%;
+}
+
+/* Span 3 */
+
+.span-3-of-3 {
+	width: 100%; 
+}
+
+.span-2-of-3 {
+	width: 66.13%; 
+}
+
+.span-1-of-3 {
+	width: 32.26%; 
+}
+
+/* Span 4 */
+
+.span-4-of-4 {
+	width: 100%; 
+}
+
+.span-3-of-4 {
+	width: 74.6%; 
+}
+
+.span-2-of-4 {
+	width: 49.2%; 
+}
+
+.span-1-of-4 {
+	width: 23.8%; 
+}
+
+/* Login & Signup */
+
+.auth-nav {
+    float: right;
+    list-style: none;
+    margin-top: 40px;
+}
+
+.auth-nav li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.auth-nav li a,
+.auth-nav li a {
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 90%;
+    color: #000;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.auth-nav li a:hover {
+    background-color: #e1e1e1;
+    transition: background-color 0.2s ease;
+}
+
+
+/** Form **/
+
+.contact-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    height: 100px;
+}
+
+input[type="checkbox"] {
+    margin: 10px 5px 10px 0;
+}
+
+:focus {
+    outline: 0;
+}
+
+.form-messages {
+    width: 70%;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 0 auto 30px;
+    color: #333;
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+.question div {
+    padding-bottom: 5px;
+}
+
+.pad {
+    margin-right: 5px;
+}
+
+.email-row {
+    margin-bottom: 10px;
+}
+
+.sbtn {
+    padding: 10px 30px;
+    text-decoration: none;
+    border-radius: 200px;
+    border: 1px solid #f1f1f1;
+    transition: background-color .2s, border .2s, color .2s;
+    background-color: #f1f1f1;
+    color: #000;
+    margin-top: 10px;
+}
+
+.sbtn:hover {
+    background-color: rgba(250, 248, 248, 0.27);
+}
