@@ -1,85 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <script src="../navigation.js"></script>
-   
-</head>
-<body>
-<header>
-    <div id="nav-container"></div>
-</header>
-
-<section class="resources">
-    <div class="row">
-        <div class="col span-1-of-3 box side-bar">
-            <a href="../CoursePage/CoursePage.html">Module Information</a>
-            <a href="../Papers/Papers.html" >Past Papers</a>
-            <a href="../Videos/Videos.html">Videos</a>
-            <a href="../Quizzes/Quizzes.html">Quizzes</a>
-            <a href="../CourseForum/CourseForum.html">Discussion Forums</a>
-        </div>
-        <div class="col span-2-of-3 box forum">
-            <div class="add-question">
-                <button class="add-question-button">Add Question</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+        <script src="../navigation.js"></script>
+    </head>
+    <body>
+    <header>
+        <div id="nav-container"></div>
+    </header>
+    
+    <section class="resources">
+        <div class="row">
+            <div class="col span-1-of-3 box side-bar">
+                <a href="../CoursePage/CoursePage.html">Module Information</a>
+                <a href="../Papers/Papers.html" >Past Papers</a>
+                <a href="../Videos/Videos.html">Videos</a>
+                <a href="../Quizzes/Quizzes.html">Quizzes</a>
+                <a href="../CourseForum/CourseForum.html">Discussion Forums</a>
             </div>
-            <div class="forum-topic">
-                <h3 class="topic-title">How to optimize website performance?</h3>
-                <p class="topic-author">Posted by John Doe</p>
-                <p class="topic-content">I'm currently trying to optimize my website. Any tips or resources would be appreciated!</p>
-
-                <!-- Replies -->
-                <div class="topic-reply">
-                    <p class="reply-author">Reply from Jane:</p>
-                    <p class="reply-content">Consider using tools like Google PageSpeed Insights or GTmetrix to get insights on performance improvements.</p>
+            <div class="col span-2-of-3 box forum">
+                <div class="add-question">
+                    <button class="add-question-button">Add Question</button>
                 </div>
-
-                <div class="topic-reply">
-                    <p class="reply-author">Reply from Max:</p>
-                    <p class="reply-content">Don't forget to compress your images and leverage browser caching.</p>
+                <div class="forum-topic">
+                    <h3 class="topic-title">Introduction to Linked Lists</h3>
+                    <p class="topic-author">Posted by Alice Smith</p>
+                    <p class="topic-content">I'm seeking insights into the benefits of using linked lists in data structures.</p>
+    
+                    
+                    <!-- Replies -->
+                    <div class="topic-reply">
+                        <p class="reply-author">Reply from Jane:</p>
+                        <p class="reply-content">Linked lists are a fundamental data structure used in computer science. They are great for dynamic data storage and have various applications.</p>
+                    </div>
+    
+                    <div class="topic-reply">
+                        <p class="reply-author">Reply from Max:</p>
+                        <p class="reply-content">I'm currently studying linked lists in my data structures course. Can anyone recommend good resources for learning more about them?</p>
+                    </div>
+    
+                    <div class="topic-reply-container"></div>
+    
+                    <!-- Reply Box -->
+                    <div class="reply-box">
+                        <div class="textarea-container">
+                            <textarea id="reply-textarea-0" placeholder="Type your reply..."></textarea>
+                            <i class="fas fa-paper-plane send-icon" id="send-icon-0"></i>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Reply Box -->
-                <div class="reply-box">
-                    <div class="textarea-container">
-                        <textarea placeholder="Type your reply..."></textarea>
-                        <i class="fas fa-paper-plane send-icon"></i>
+                <div class="forum-topic">
+                    <h3 class="topic-title">Sorting Algorithms Comparison</h3>
+                    <p class="topic-author">Posted by Charlie Brown</p>
+                    <p class="topic-content">What are the main differences between merge sort and quicksort?</p>
+    
+                    <!-- Replies -->
+                    <div class="topic-reply">
+                        <p class="reply-author">Reply from Gilbert:</p>
+                        <p class="reply-content">When it comes to sorting algorithms, it's essential to consider factors like time complexity and space complexity. Different algorithms excel in different scenarios.</p>
+                    </div>
+    
+                    <div class="topic-reply">
+                        <p class="reply-author">Reply from Maxwell:</p>
+                        <p class="reply-content">I've found that quicksort tends to be quite efficient for general sorting tasks, but for small datasets, insertion sort can be surprisingly fast.</p>
+                    </div>
+                    
+                    <div class="topic-reply-container"></div>
+    
+                    <!-- Reply Box -->
+                    <div class="reply-box">
+                        <div class="textarea-container">
+                            <textarea id="reply-textarea-1" placeholder="Type your reply..."></textarea>
+                            <i class="fas fa-paper-plane send-icon" id="send-icon-1"></i>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="forum-topic">
-                <h3 class="topic-title">Best design principles for mobile web?</h3>
-                <p class="topic-author">Posted by Alice</p>
-                <p class="topic-content">I'm redesigning my site for mobile users. What are the best practices to keep in mind?</p>
-
-                <!-- Replies -->
-                <div class="topic-reply">
-                    <p class="reply-author">Reply from Bob:</p>
-                    <p class="reply-content">Ensure your site is responsive. Use media queries to adjust layout based on screen size.</p>
-                </div>
-
-                <!-- Reply Box -->
-                <div class="reply-box">
-                    <div class="textarea-container">
-                        <textarea placeholder="Type your reply..."></textarea>
-                        <i class="fas fa-paper-plane send-icon"></i> <!-- Font Awesome Send Icon -->
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
-<footer>
-    <div class="row">
-        <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
-    </div>
-</footer>
-</body>
-</html>
+    </section>
+    <footer>
+        <div class="row">
+            <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Array to store replies for each topic with the hardcoded username "Mike Johnson"
+        const replies = [
+            [], // Replies for the first topic
+            []  // Replies for the second topic
+        ];
+    
+        // Function to display replies for a topic
+        function displayReplies(topicIndex) {
+            const replyContainer = document.querySelectorAll('.topic-reply-container')[topicIndex];
+            replyContainer.innerHTML = '';
+    
+            replies[topicIndex].forEach((reply) => {
+                const replyElement = document.createElement('div');
+                replyElement.classList.add('topic-reply');
+                replyElement.innerHTML = `<p class="reply-author">Reply from Mike Johnson:</p><p class="reply-content">${reply}</p>`;
+                replyContainer.appendChild(replyElement);
+            });
+        }
+    
+        // Event listeners for the "Send" icons
+        const sendIcons = document.querySelectorAll('.send-icon');
+        sendIcons.forEach((icon, index) => {
+            icon.addEventListener('click', () => {
+                const textarea = document.querySelector(`#reply-textarea-${index}`);
+                const replyText = textarea.value.trim();
+                if (replyText !== '') {
+                    replies[index].push(replyText);
+                    textarea.value = ''; // Clear the textarea
+                    displayReplies(index); // Display the updated replies
+                }
+            });
+        });
+    </script>
+    
+    </body>
+    </html>
+
 
 
 
