@@ -27,7 +27,7 @@
                     <a href="../Quizzes/Quizzes.html">Quizzes</a>
                     <a href="../CourseForum/CourseForum.html">Discussion Forums</a>
 
-                    <div class="other-quizzes">
+                    <!--div class="other-quizzes">
                         <h3>More Quizzes:</h3>
                         <ul>
                             <li><a href="#">Linked Lists</a></li>
@@ -40,13 +40,42 @@
                             <li><a href="#">Time & Space Complexity, Big O notation</a></li>
 
                         </ul>
-                    </div>
+                    </div-->
 
                 </div>
 
                 <div class="col span-2-of-3 box">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeosQVOm8BFhoolXjP57sdPadKqT0flqXZGRb4UtsIlE-fdAw/viewform?embedded=true" width="640" height="1770" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
+                   
+                    <div class="quiz-container">
+                        <h1>Data Structures and Algorithms Quiz</h1>
+                        <form id="quiz-form">
+                            <div class="quiz-question">
+                                <label>1. What is the time complexity of quicksort?</label><br>
+                                <input type="radio" name="q1" value="O(n)"> O(n)<br>
+                                <input type="radio" name="q1" value="O(n^2)"> O(n^2)<br>
+                                <input type="radio" name="q1" value="O(n log n)"> O(n log n)<br>
+                            </div>
+                
+                            <div class="quiz-question">
+                                <label>2. What is a stack?</label><br>
+                                <input type="radio" name="q2" value="A linear data structure with Last In First Out (LIFO) order"> A linear data structure with Last In First Out (LIFO) order<br>
+                                <input type="radio" name="q2" value="A linear data structure with First In First Out (FIFO) order"> A linear data structure with First In First Out (FIFO) order<br>
+                                <input type="radio" name="q2" value="A non-linear data structure"> A non-linear data structure<br>
+                            </div>
+                
+                            <div class="quiz-question">
+                                <label>3. What is the purpose of a hash table?</label><br>
+                                <input type="radio" name="q3" value="To quickly retrieve data by a specific key"> To quickly retrieve data by a specific key<br>
+                                <input type="radio" name="q3" value="To sort data in ascending order"> To sort data in ascending order<br>
+                                <input type="radio" name="q3" value="To perform mathematical operations"> To perform mathematical operations<br>
+                            </div>
+                
+                            <input type="submit" value="Submit">
+                        </form>
+                
+                        <div id="result"></div>
+                        <button id="retry-button">Retry</button>
+                    </div>
                 </div>
 
             </div>
@@ -56,5 +85,7 @@
                 <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
             </div>
         </footer>
+       
+        <script src="../Quizzes/js/Quiz.js"></script>
     </body>
 </html>

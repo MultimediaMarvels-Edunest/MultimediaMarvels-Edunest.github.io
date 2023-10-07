@@ -22,12 +22,13 @@
         <section>
             <div class="row">
                 <h2>Please select a course</h2>
-                <form action="" class="searchbar">
-                    <input type="search" name="search" placeholder="Search..">
+                <div class="searchbar">
+                    <input type="search" name="search" id="searchInput" placeholder="Search..">
                     <button type="submit" class="search-icon">
                         <i class="fas fa-search"></i>
                     </button>
-                </form>
+                    <ul id="autocomplete-results"></ul>
+                </div>
             </div>
         </section>
         <section class="courses">
@@ -97,5 +98,8 @@
                 <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
             </div>
         </footer>
+        <script src="../Courses/js/courses.js"></script>
+      
+
     </body>
 </html>
