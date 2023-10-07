@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var nav = `
         <nav class="row">
-            <img src="img/logo_dark.png" alt="MM Logo" class="logo">
+            <a href="../Home/index.html"><img src="img/logo_dark.png" alt="MM Logo" class="logo"></a>
             <ul class="main-nav">
                 <li><a href="../Home/index.html">Home</a></li>
                 <li><a href="../Courses/Courses.html">Courses</a></li>
