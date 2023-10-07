@@ -1,3 +1,47 @@
+document.addEventListener('DOMContentLoaded', function() {
+    var currentQuestion = 0;
+    var quizQuestions = document.querySelectorAll('.quiz-question');
+    var prevButton = document.getElementById('prev-button');
+    var nextButton = document.getElementById('next-button');
+    var submitButton = document.querySelector('#quiz-form input[type="submit"]');
+
+    function showQuestion(index) {
+        quizQuestions.forEach(function(question, i) {
+            if (i === index) {
+                question.style.display = 'block';
+            } else {
+                question.style.display = 'none';
+            }
+        });
+
+        if (index === 0) {
+            prevButton.disabled = true;
+        } else {
+            prevButton.disabled = false;
+        }
+
+        if (index === quizQuestions.length - 1) {
+            nextButton.style.display = 'none';
+            submitButton.style.display = 'block';
+        } else {
+            nextButton.style.display = 'block';
+            submitButton.style.display = 'none';
+        }
+    }
+
+    showQuestion(currentQuestion);
+
+    prevButton.addEventListener('click', function() {
+        currentQuestion--;
+        showQuestion(currentQuestion);
+    });
+
+    nextButton.addEventListener('click', function() {
+        currentQuestion++;
+        showQuestion(currentQuestion);
+    });
+});
+
 document.getElementById('quiz-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -11,6 +55,8 @@ document.getElementById('quiz-form').addEventListener('submit', function(event) 
                 score++;
             }
             else {
+                var feedback = userAnswer.parentElement.querySelector('.incorrect-feedback');
+                feedback.textContent = 'Incorrect';
                 userAnswer.parentElement.classList.add('incorrect-answer');
             }
         }
@@ -35,8 +81,13 @@ document.getElementById('retry-button').addEventListener('click', function() {
     var quizQuestions = document.querySelectorAll('.quiz-question');
     quizQuestions.forEach(function(question) {
         question.classList.remove('incorrect-answer');
+        var feedback = question.querySelector('.incorrect-feedback');
+        feedback.textContent = '';
     });
 
     var form = document.getElementById('quiz-form');
     form.reset();
+
+    currentQuestion = 0;
+    showQuestion(currentQuestion);
 });
