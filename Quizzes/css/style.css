@@ -357,7 +357,25 @@ input[type="submit"]:hover {
 #retry-button:hover {
     background-color: #0056b3;
 }
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
 
+.pagination button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+}
 
 
 
