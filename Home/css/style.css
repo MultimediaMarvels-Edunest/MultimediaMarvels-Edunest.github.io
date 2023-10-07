@@ -23,6 +23,7 @@ body {
 
 .site-content {
     flex: 1;
+    cursor: default;
 }
 
 .intro {
@@ -52,6 +53,7 @@ img {
 .content .row {
     display: flex;  /* Add this line */
     justify-content: space-between;  /* Add this line */
+    cursor: default;
 }
 
 h1,
@@ -221,6 +223,7 @@ footer {
     font-size: 80%;
     padding: 20px;
     text-align: center;
+    cursor: default;
 }
 
 /* content */

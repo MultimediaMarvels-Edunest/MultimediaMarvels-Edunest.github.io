@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <ul class="main-nav">
                 <li><a href="../Home/index.html">Home</a></li>
                 <li><a href="../Courses/Courses.html">Courses</a></li>
-                <li><a href="../Forums/Forums.html">Forum</a></li>
                 <li><a href="../Dashboard/Dashboard.html">Dashboard</a></li>
-                <li><a href="../Mentors/Mentors.html">Mentors</a></li>
                 <li><a href="../Contact/Contact.html">Contact</a></li>
             </ul>
             <ul class="auth-nav">
