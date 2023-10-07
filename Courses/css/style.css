@@ -265,6 +265,7 @@ button, html, input[type="button"], input[type="reset"], input[type="submit"] {
 
 .row {
     zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+    cursor: default;
 }
 
 .row:before,
