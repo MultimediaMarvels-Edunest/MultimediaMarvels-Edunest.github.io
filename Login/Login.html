@@ -34,7 +34,11 @@
             padding: 10px 20px;
             cursor: pointer;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
+
+        .blue-button:hover {
+            background-color: darkblue;}
     </style>
 </head>
 <body>
@@ -85,7 +89,7 @@
                 <div class="row">
                     <div class="col span-1-of-3"></div>
                     <div class="sbtn2 col span-2-of-3">
-                        <input type="submit" class="sbtn blue-button" class="sbtn" value="Send It!" onclick="submitForm('index.html')" >
+                        <input type="submit" class="sbtn blue-button" value="Send It!" onclick="submitForm('index.html')" >
                     </div>
                 </div>
             </form>
