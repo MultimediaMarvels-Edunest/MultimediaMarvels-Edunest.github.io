@@ -1,60 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
-        <script src="../navigation.js"></script>
-		<title>Login</title>
-    </head>
-    <body>
-    <div class="site-content">
-        <header>
-            <div id="nav-container"></div>
-            </header>
-            <section class="intro">
-                <div class="row">
-                    <h2>Login</h2>
-                </div>
-            </section>
-            <section>
-                <div class="row">
-                    <h2>Please fill in the form below</h2>
-                </div>
-                <div class="row">
-                    <form method="post" action="" class="contact-form">
-                        <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                                <input type="email" name="email" id="email" placeholder="Enter your email address" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="password">Password</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                                <input type="password" name="password" id="password" placeholder="Choose a strong password" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col span-1-of-3"></div>
-                            <div class="sbtn2 col span-2-of-3">
-                                <input type="submit" class="sbtn" value="Send It!">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <script src="../navigation.js"></script>
+    <title>Login</title>
+    <style>
+        
+        .error-popup {
+            display: none;
+            color: red;
+            font-size: 14px;
+        }
+
+        /* Additional style for the "Remember Me" checkbox */
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .remember-me label {
+            margin-left: 10px;
+        }
+
+        .blue-button {
+            background-color: rgb(38, 38, 114);
+            color: white; 
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="site-content">
+    <header>
+        <div id="nav-container"></div>
+    </header>
+    <section class="intro">
+        <div class="row">
+            <h2>Login</h2>
         </div>
-        <footer>
-            <div class="row">
-                <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
-            </div>
-        </footer>
-    </body>
+    </section>
+    <section>
+        <div class="row">
+            <h2>Please fill in the form below</h2>
+        </div>
+        <div class="row">
+            <form method="post" action="index.html" class="contact-form" onsubmit="return validateForm()">
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+                        <div id="email-error" class="error-popup">Invalid email address</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="password" name="password" id="password" placeholder="Choose a strong password" required>
+                        <div id="password-error" class="error-popup">Password must be at least 8 characters long</div>
+                    </div>
+                </div>
+                
+                <!-- Remember Me checkbox -->
+                <div class="row">
+                    <div class="col span-1-of-3"></div>
+                    <div class="col span-2-of-3 remember-me">
+                        <input type="checkbox" id="remember-me" name="remember-me">
+                        <label for="remember-me">Remember Me</label>
+                    </div>
+                </div>
+
+                <input type="hidden" name="redirect_to_home" value="1">
+                <div class="row">
+                    <div class="col span-1-of-3"></div>
+                    <div class="sbtn2 col span-2-of-3">
+                        <input type="submit" class="sbtn blue-button" class="sbtn" value="Send It!" onclick="submitForm('index.html')" >
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>
+<footer>
+    <div class="row">
+        <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
+    </div>
+</footer>
+
+<script>
+    function validateForm() {
+        
+        document.getElementById('email-error').style.display = 'none';
+        document.getElementById('password-error').style.display = 'none';
+
+        
+        const email = document.getElementById('email').value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            document.getElementById('email-error').style.display = 'block';
+            return false;
+        }
+
+        
+        const password = document.getElementById('password').value;
+        if (password.length < 8) {
+            document.getElementById('password-error').style.display = 'block';
+            return false;
+        }
+
+        return true;
+    }
+</script>
+</body>
 </html>
