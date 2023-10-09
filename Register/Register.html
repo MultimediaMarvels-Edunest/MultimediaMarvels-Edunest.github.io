@@ -1,76 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
-        <script src="../navigation.js"></script>
-		<title>Register</title>
-    </head>
-    <body>
-    <div class="site-content">
-        <header>
-            <div id="nav-container"></div>
-            </header>
-            <section class="intro">
-                <div class="row">
-                    <h2>Register</h2>
-                </div>
-            </section>
-            <section>
-                <div class="row">
-                    <h2>Please fill in the form below</h2>
-                </div>
-                <div class="row">
-                    <form method="post" action="" class="contact-form">
-                        <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="name">Name</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                                <input type="text" name="name" id="name" placeholder="Enter your first name" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="surname">Surname</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                                <input type="text" name="surname" id="surname" placeholder="Enter your surname" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                                <input type="email" name="email" id="email" placeholder="Enter your email address" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col span-1-of-3">
-                                <label for="password">Password</label>
-                            </div>
-                            <div class="col span-2-of-3">
-                                <input type="password" name="password" id="password" placeholder="Choose a strong password" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col span-1-of-3"></div>
-                            <div class="sbtn2 col span-2-of-3">
-                                <input type="submit" class="sbtn" value="Send It!">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <script src="../navigation.js"></script>
+    <title>Register</title>
+    <style>
+        /* Add custom styles for feedback pop-ups */
+        .error-popup {
+            display: none;
+            color: red;
+            font-size: 14px;
+        }
+        .success-message {
+            display: none;
+            color: green;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .blue-button {
+            background-color: rgb(38, 38, 114);
+            color: white; 
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .blue-button:hover {
+            background-color: darkblue;
+        }
+
+    </style>
+</head>
+<body>
+<div class="site-content">
+    <header>
+        <div id="nav-container"></div>
+    </header>
+    <section class="intro">
+        <div class="row">
+            <h2>Register</h2>
         </div>
-        <footer>
-            <div class="row">
-                <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
-            </div>
-        </footer>
-    </body>
+    </section>
+    <section>
+        <div class="row">
+            <h2>Please fill in the form below</h2>
+        </div>
+        <div class="row">
+            <form method="post" action="" class="contact-form" onsubmit="return validateForm()">
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="text" name="name" id="name" placeholder="Enter your first name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="surname">Surname</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="text" name="surname" id="surname" placeholder="Enter your surname" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+                        <div id="email-error" class="error-popup">Invalid email address</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="password" name="password" id="password" placeholder="Choose a strong password" required>
+                        <div id="password-error" class="error-popup">Password must be at least 8 characters long</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3"></div>
+                    <div class="sbtn2 col span-2-of-3">
+                        <input type="submit" class="sbtn blue-button" value="Register" formaction="index.html">
+                    </div>
+                </div>
+            </form>
+            <div id="registration-success" class="success-message">Registration successful!</div>
+            <div id="registration-failure" class="error-popup">Registration failed. Please try again later.</div>
+        </div>
+    </section>
+</div>
+<footer>
+    <div class="row">
+        <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
+    </div>
+</footer>
+
+<script>
+    function validateForm() {
+        // Reset previous error messages
+        document.getElementById('email-error').style.display = 'none';
+        document.getElementById('password-error').style.display = 'none';
+
+        // Check email format
+        const email = document.getElementById('email').value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            document.getElementById('email-error').style.display = 'block';
+            return false;
+        }
+
+        // Check password length
+        const password = document.getElementById('password').value;
+        if (password.length < 8) {
+            document.getElementById('password-error').style.display = 'block';
+            return false;
+        }
+
+        // Simulate registration success (you would replace this with actual registration logic)
+        displayRegistrationSuccess();
+        return false; // Prevent actual form submission for this example
+    }
+
+    function displayRegistrationSuccess() {
+        // Hide error messages and show success message
+        document.getElementById('email-error').style.display = 'none';
+        document.getElementById('password-error').style.display = 'none';
+        document.getElementById('registration-success').style.display = 'block';
+    }
+
+    function displayRegistrationFailure() {
+        // Hide success message and show error message
+        document.getElementById('registration-success').style.display = 'none';
+        document.getElementById('registration-failure').style.display = 'block';
+    }
+</script>
+</body>
 </html>
