@@ -42,6 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+window.onload = () => {
+    document.getElementsByClassName("auth-nav")[0].style.display = "none";
+};
+
 document.getElementById('quiz-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
