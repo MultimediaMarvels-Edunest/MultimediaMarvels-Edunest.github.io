@@ -67,6 +67,7 @@
             </div>
     </footer>
     <script>
+       
         function filterMentors() {
             const selectedSubject = document.getElementById('mentorFilter').value;
             const mentors = document.querySelectorAll('.mentor');
@@ -79,11 +80,14 @@
                 }
             });
         }
-
+        
         // On page load, display all mentors
         window.onload = function() {
             filterMentors();
+            document.getElementsByClassName("auth-nav")[0].style.display = "none";
         }
+
+         
     </script>
 
     </body>
