@@ -36,11 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
         showQuestion(currentQuestion);
     });
 
+    function output(){
+        const htmlCode = `<p>This is a generated HTML page.</p>`;
+        // Do something with the generated HTML code...
+    }
+
     nextButton.addEventListener('click', function() {
+        output();
         currentQuestion++;
         showQuestion(currentQuestion);
     });
-});
 
 window.onload = () => {
     document.getElementsByClassName("auth-nav")[0].style.display = "none";
@@ -48,50 +53,50 @@ window.onload = () => {
 
 document.getElementById('quiz-form').addEventListener('submit', function(event) {
     event.preventDefault();
+        var score = 0;
+        var answers = ['O(n log n)', 'A linear data structure with Last In First Out (LIFO) order', 'To quickly retrieve data by a specific key'];
 
-    var score = 0;
-    var answers = ['O(n log n)', 'A linear data structure with Last In First Out (LIFO) order', 'To quickly retrieve data by a specific key'];
-
-    for(var i = 1; i <= answers.length; i++) {
-        var userAnswer = document.querySelector('input[name="q'+i+'"]:checked');
-        if(userAnswer) {
-            if(userAnswer.value === answers[i-1]) {
-                score++;
-            }
-            else {
-                var feedback = userAnswer.parentElement.querySelector('.incorrect-feedback');
-                feedback.textContent = 'Incorrect';
-                userAnswer.parentElement.classList.add('incorrect-answer');
+        for(var i = 1; i <= answers.length; i++) {
+            var userAnswer = document.querySelector('input[name="q'+i+'"]:checked');
+            if(userAnswer) {
+                if(userAnswer.value === answers[i-1]) {
+                    score++;
+                }
+                else {
+                    var feedback = userAnswer.parentElement.querySelector('.incorrect-feedback');
+                    feedback.textContent = 'Incorrect';
+                    userAnswer.parentElement.classList.add('incorrect-answer');
+                }
             }
         }
-    }
 
-    var result = document.getElementById('result');
-    result.textContent = 'You scored ' + score + ' out of ' + answers.length;
+        var result = document.getElementById('result');
+        result.textContent = 'You scored ' + score + ' out of ' + answers.length;
 
-    result.style.color = (score === answers.length) ? 'green' : 'red';
+        result.style.color = (score === answers.length) ? 'green' : 'red';
 
-    var retryButton = document.getElementById('retry-button');
-    retryButton.style.display = 'block';
-});
-
-document.getElementById('retry-button').addEventListener('click', function() {
-    var result = document.getElementById('result');
-    result.textContent = '';
-
-    var retryButton = document.getElementById('retry-button');
-    retryButton.style.display = 'none';
-
-    var quizQuestions = document.querySelectorAll('.quiz-question');
-    quizQuestions.forEach(function(question) {
-        question.classList.remove('incorrect-answer');
-        var feedback = question.querySelector('.incorrect-feedback');
-        feedback.textContent = '';
+        var retryButton = document.getElementById('retry-button');
+        retryButton.style.display = 'block';
     });
 
-    var form = document.getElementById('quiz-form');
-    form.reset();
+    document.getElementById('retry-button').addEventListener('click', function() {
+        var result = document.getElementById('result');
+        result.textContent = '';
 
-    currentQuestion = 0;
-    showQuestion(currentQuestion);
+        var retryButton = document.getElementById('retry-button');
+        retryButton.style.display = 'none';
+
+        var quizQuestions = document.querySelectorAll('.quiz-question');
+        quizQuestions.forEach(function(question) {
+            question.classList.remove('incorrect-answer');
+            var feedback = question.querySelector('.incorrect-feedback');
+            feedback.textContent = '';
+        });
+
+        var form = document.getElementById('quiz-form');
+        form.reset();
+
+        currentQuestion = 0;
+        showQuestion(0);  // Display the first question
+    });
 });

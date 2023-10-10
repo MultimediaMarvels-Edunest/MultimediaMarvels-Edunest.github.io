@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
-    <script src="../navigation.js"></script>
-    <title>Login</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+        <script src="../navigation.js"></script>
+        <style>
         
-        .error-popup {
-            display: none;
-            color: red;
-            font-size: 14px;
-        }
+            .error-popup {
+                display: none;
+                color: red;
+                font-size: 14px;
+            }
+    
+            /* Additional style for the "Remember Me" checkbox */
+            .remember-me {
+                display: flex;
+                align-items: center;
+                margin-top: 15px;
+            }
+    
+            .remember-me label {
+                margin-left: 10px;
+            }
+    
+            .blue-button {
+                background-color: rgb(38, 38, 114);
+                color: white; 
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+    
+            .blue-button:hover {
+                background-color: darkblue;}
+        </style>
+		
+    </head>
 
-        /* Additional style for the "Remember Me" checkbox */
-        .remember-me {
-            display: flex;
-            align-items: center;
-            margin-top: 15px;
-        }
-
-        .remember-me label {
+    .remember-me label {
             margin-left: 10px;
         }
 
@@ -46,11 +65,7 @@
     <header>
         <div id="nav-container"></div>
     </header>
-    <section class="intro">
-        <div class="row">
-            <h2>Login</h2>
-        </div>
-    </section>
+    
     <section>
         <div class="row">
             <h2>Please fill in the form below</h2>
