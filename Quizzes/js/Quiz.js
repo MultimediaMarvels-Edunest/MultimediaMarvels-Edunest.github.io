@@ -91,3 +91,6 @@ document.getElementById('retry-button').addEventListener('click', function() {
     currentQuestion = 0;
     showQuestion(currentQuestion);
 });
+window.onload = () => {
+    document.getElementsByClassName("auth-nav")[0].style.display = "none";
+};
