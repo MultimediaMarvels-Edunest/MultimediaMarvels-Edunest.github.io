@@ -56,7 +56,7 @@
             <h2>Please fill in the form below</h2>
         </div>
         <div class="row">
-            <form method="post" action="index.html" class="contact-form" onsubmit="return validateForm()">
+            <!-- <form method="post" action="../Home/index.html" class="contact-form" onsubmit="return validateForm()"> -->
                 <div class="row">
                     <div class="col span-1-of-3">
                         <label for="email">Email</label>
@@ -89,10 +89,13 @@
                 <div class="row">
                     <div class="col span-1-of-3"></div>
                     <div class="sbtn2 col span-2-of-3">
-                        <input type="submit" class="sbtn blue-button" value="Send It!" onclick="submitForm('index.html')" >
+                        <a href="../Home/index.html">
+                        <input type="submit" class="sbtn blue-button" onclick="validateForm()" value="Send It!" >
+
+                        </a>
                     </div>
                 </div>
-            </form>
+            <!-- </form> -->
         </div>
     </section>
 </div>
@@ -102,7 +105,15 @@
     </div>
 </footer>
 
-<script>
+<script defer>
+    window.onload = () => {
+        document.getElementsByClassName("main-nav")[0].style.display = "none";
+        document.getElementsByClassName("auth-nav")[0].getElementsByTagName("li")[0].style.display = "none"
+        
+
+        // document.location = "../Home/index.html";
+    };
+
     function validateForm() {
         
         document.getElementById('email-error').style.display = 'none';
@@ -123,7 +134,9 @@
             return false;
         }
 
-        return true;
+        document.location = "../Home/index.html";
+        console.log('What!!!')
+        return false;
     }
 </script>
 </body>

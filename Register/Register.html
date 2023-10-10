@@ -106,7 +106,15 @@
     </div>
 </footer>
 
-<script>
+<script defer>
+
+    // console.log(document.getElementsByClassName("main-nav").display = "none");
+
+    window.onload = () => {
+        document.getElementsByClassName("main-nav")[0].style.display = "none";
+        document.getElementsByClassName("auth-nav")[0].style.display = "none";
+    };
+
     function validateForm() {
         // Reset previous error messages
         document.getElementById('email-error').style.display = 'none';

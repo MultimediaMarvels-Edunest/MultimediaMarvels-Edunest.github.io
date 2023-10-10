@@ -12,7 +12,9 @@ var courses = [
     "COS444 - Graphics Design",
     "WTW355 - Probability and Statistics"
 ];
-
+window.onload = () => {
+    document.getElementsByClassName("auth-nav")[0].style.display = "none";
+};
 document.addEventListener('DOMContentLoaded', function() {
     var searchInput = document.getElementById('searchInput');
     var resultsList = document.getElementById('autocomplete-results');
