@@ -11,95 +11,74 @@
     </head>
     <body>
         <div class="site-content">
-        <header>
-            <div id="nav-container"></div>
-		</header>
-        <section class="intro">
-            <div class="row">
-                <h3>FROM ORIENTATION TO GRADUATION</h3>
-				<h2>Master every subject with ease!</h2>
-                <p>Dive deep with video tutorials, challenge yourself with quizzes, revisit with past papers, and engage in our lively discussion forums—all curated for your coursework.</p>
-                <a href="../Login/Login.html" class="get-started-btn">Get started</a>
-			</div>
-        </section>
-        <section class="content">
-            <div class="row">
-                <h2>Our Features</h2>
-            </div>
-            <div class="row">
-                <div class="col span-1-of-2 box">
-                    <img src="img/image1.jpg" alt="Image description" class="resource-image">
-                    <div class="pad">
-                        <h3>Past Papers</h3>
-                        <ul>
-                            <li>Dive deep into our extensive archive of past papers across multiple subjects.</li>
-                            <li>Test your understanding and get a feel for the type of questions you might encounter.</li>
-                        </ul>
-                    </div>
+            <header>
+                <div id="nav-container"></div>
+            </header>
+            <section class="intro">
+                <div class="row">
+                    <h3>FROM ORIENTATION TO GRADUATION</h3>
+                    <h2>Master every subject with ease!</h2>
+                    <p>Dive deep with video tutorials, challenge yourself with quizzes, revisit with past papers, and engage in our lively discussion forums—all curated for your coursework.</p>
+                    <a href="../Courses/Courses.html" class="get-started-btn">Get started</a>
                 </div>
-                <div class="col span-1-of-2 box">
-                    <img src="img/image2.jpg" alt="Image description" class="resource-image">
-                    <div class="pad">
-                        <h3>Quizzes</h3>
-                        <ul>
-                            <li> Challenge yourself with our interactive quizzes tailored for various subjects. </li>
-                            <li> Receive instant feedback and track your progress over time. </li>
+            </section>
+            <section class="content">
+                <div class="row">
+                    <h2>Our Features</h2>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-2 box">
+                        <img src="img/image1.jpg" alt="Image description" class="resource-image">
+                        <div class="pad">
+                            <h3>Past Papers</h3>
+                            <ul>
+                                <li>Dive deep into our extensive archive of past papers across multiple subjects.</li>
+                                <li>Test your understanding and get a feel for the type of questions you might encounter.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col span-1-of-2 box">
+                        <img src="img/image2.jpg" alt="Image description" class="resource-image">
+                        <div class="pad">
+                            <h3>Quizzes</h3>
+                            <ul>
+                                <li> Challenge yourself with our interactive quizzes tailored for various subjects. </li>
+                                <li> Receive instant feedback and track your progress over time. </li>
 
-                        </ul>
-                        
+                            </ul>
 
+
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col span-1-of-2 box">
-                    <img src="img/image3.jpg" alt="Image description" class="resource-image">
-                    <div class="pad">
-                        <h3>Video Tutorials</h3>
-                        <ul>
-                            <li>Learn at your own pace with our curated video tutorials.</li>
-                            <li>Expert teachers break down complex topics into digestible content.</li>
-                        </ul>
+                <div class="row">
+                    <div class="col span-1-of-2 box">
+                        <img src="img/image3.jpg" alt="Image description" class="resource-image">
+                        <div class="pad">
+                            <h3>Video Tutorials</h3>
+                            <ul>
+                                <li>Learn at your own pace with our curated video tutorials.</li>
+                                <li>Expert teachers break down complex topics into digestible content.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col span-1-of-2 box">
+                        <img src="img/image4.jpg" alt="Image description" class="resource-image">
+                        <div class="pad">
+                            <h3>Discussion Forums</h3>
+                            <ul>
+                                <li> Join our thriving community of learners. </li>
+                                <li> Share insights, ask questions, and connect with peers and experts. </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col span-1-of-2 box">
-                    <img src="img/image4.jpg" alt="Image description" class="resource-image">
-                    <div class="pad">
-                        <h3>Discussion Forums</h3>
-                        <ul>
-                            <li> Join our thriving community of learners. </li>
-                            <li> Share insights, ask questions, and connect with peers and experts. </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-      
-       
+            </section>
         </div>
         <footer>
             <div class="row">
                 <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
             </div>
         </footer>
-        <script defer>
-            window.onload = () => {
-                document.getElementsByClassName("auth-nav")[0].style.display = "none";
-            };
-            document.addEventListener("DOMContentLoaded", function() {
-                let currentSlide = 1;
-                const totalSlides = 3;
-                const intervalTime = 3000; // 5 seconds
-
-                setInterval(function() {
-                    document.getElementById(`carousel-${currentSlide}`).checked = true;
-
-                    currentSlide++;
-                    if(currentSlide > totalSlides) {
-                        currentSlide = 1;
-                    }
-                }, intervalTime);
-            });
-        </script>
     </body>
 </html>

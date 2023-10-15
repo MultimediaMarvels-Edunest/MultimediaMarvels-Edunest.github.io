@@ -12,7 +12,7 @@
     <header>
         <div id="nav-container"></div>
     </header>
-    
+    <div class="site-content">
     <section class="resources">
         <div class="row">
             <div class="col span-1-of-3 box side-bar">
@@ -82,6 +82,7 @@
             </div>
         </div>
     </section>
+    </div>
     <footer>
         <div class="row">
             <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
@@ -93,6 +94,8 @@
             <h2>Add a New Forum Topic</h2>
             <label for="title">Title:</label>
             <input type="text" id="title">
+            <label for="author">Author:</label>
+            <input type="text" id="author">
             <label for="content">Content:</label>
             <textarea id="content" rows="4"></textarea>
             <button id="submit-topic">Submit</button>
@@ -156,17 +159,17 @@
         event.stopPropagation(); // Prevent the click event from propagating to the document
 
         const title = document.getElementById('title').value;
-        //const author = document.getElementById('author').value;
+        const author = document.getElementById('author').value;
         const content = document.getElementById('content').value;
 
-        if (title && content) {
+        if (title && author && content) {
             // Create a new forum topic and add it to the forum container
             const newTopic = document.createElement('div');
             newTopic.classList.add('forum-topic');
 
             newTopic.innerHTML = `
                 <h3 class="topic-title">${title}</h3>
-                <p class="topic-author">Posted by Mike Johnson:</p>
+                <p class="topic-author">Posted by ${author}</p>
                 <p class="topic-content">${content}</p>
                 
                 <!-- Reply Box -->

@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     /*border: 1px dashed grey;*/
-    cursor: default;
 }
 
 body,
@@ -14,18 +13,17 @@ html {
     font-size: 20px;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+}
+
+.site-content {
+    flex: 1;
     cursor: default;
 }
 
-.intro {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(img/cover.jpg);
-    background-image: -o-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/cover.jpg);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/cover.jpg);
-    background-size: cover;
-    color: #fff;
-    background-attachment: fixed;
-    padding: 100px 0;
-    margin-bottom: 20px;
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* TODO: Reusable components */
@@ -45,7 +43,6 @@ img {
     padding: 2%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    cursor: default;
 }
 
 b {
@@ -65,14 +62,8 @@ h2 {
     text-align: center;
     letter-spacing: 1px;
     text-transform: uppercase;
-}
-
-.resources h2 {
-    border-bottom: 2px solid #e1e1e1;
-    font-size: 150%;
-    margin-bottom: 30px;
-    margin-top: 30px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 h3 {
@@ -85,10 +76,6 @@ h3 {
 p {
     line-height: 1.6;
     margin-bottom: 20px;
-}
-
-ol {
-    margin-left: 20px;
 }
 
 /* TODO: Side-bar */
@@ -112,39 +99,6 @@ ol {
 
 .side-bar a:hover {
     background-color: #0056B3;
-}
-
-/* TODO: Quiz links */
-.other-quizzes {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.other-quizzes h3 {
-    margin-bottom: 15px;
-    color: #333;
-    font-weight: 400;
-}
-
-.other-quizzes ul {
-    list-style: none;
-    padding: 0;
-}
-
-.other-quizzes ul li {
-    margin-bottom: 10px;
-}
-
-.other-quizzes ul li a {
-    text-decoration: none;
-    color: #000;
-    transition: color 0.2s ease;
-}
-
-.other-quizzes ul li a:hover {
-    color: #12557c;
 }
 
 
@@ -197,9 +151,9 @@ footer {
     font-size: 80%;
     padding: 20px;
     text-align: center;
+    cursor: default;
+    margin-top: 100px
 }
-
-
 
 /*TODO: Login & Signup */
 
@@ -218,12 +172,12 @@ footer {
     border-radius: 5px;
     text-decoration: none;
     font-size: 90%;
-    color: #000;
-    background-color: #f1f1f1;
+    color: #fff;
+    background-color: #2980b9;
     cursor: pointer;
 }
 .auth-nav li a:hover {
-    background-color: #e1e1e1;
+    background-color: #0056b3;
     transition: background-color 0.2s ease;
 }
 
@@ -303,82 +257,170 @@ button, html, input[type="button"], input[type="reset"], input[type="submit"] {
 .span-1-of-4 {
     width: 23.8%;
 }
-.quiz-container {
+
+
+/* TODO: 000000000000000000000000000000000000000000000000000 */
+
+
+/* Existing CSS code... */
+
+/* ... (your previous CSS rules here) ... */
+
+/* Quiz Styles */
+/* Quiz Styles */
+#quiz-form {
     max-width: 600px;
     margin: 0 auto;
-    border: 1px solid #ccc;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-h1 {
-    color: #333;
-}
-
-label {
+.question p {
+    margin-bottom: 20px;
     font-weight: bold;
-    color: #555;
 }
 
 input[type="radio"] {
-    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
-input[type="submit"] {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 20px;
+#submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2980b9;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
+#submit-button:hover {
+    background-color: #0056B3;
 }
 
 #result {
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-#retry-button {
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
     display: none;
-    margin-top: 10px;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-#retry-button:hover {
-    background-color: #0056b3;
-}
-.pagination {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+#result.success {
+    color: green;
 }
 
-.pagination button {
+#result.fail {
+    color: red;
+}
+
+
+.correct {
+    background-color: #d4edda; /* You can choose your own color */
+}
+
+.incorrect {
+    background-color: #f8d7da; /* You can choose your own color */
+}
+
+.success {
+    color: green;
+}
+
+.fail {
+    color: red;
+}
+
+/* Your existing styles here */
+
+/* Button styles */
+button, input[type="submit"] {
+    display: inline-block;
     background-color: #2980b9;
-    color: white;
-    padding: 10px 20px;
+    color: #fff;
     border: none;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    width: 150px; /* Set a specific width to make buttons same size */
+    text-align: center; /* Ensure text is centered */
 }
 
-.pagination button:hover {
+/* Hover effect for the buttons */
+button:hover, input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Add some custom styles for radio inputs and labels */
+input[type="radio"] {
+    display: none; /* Hide the default radio button */
+}
+
+#quiz-form label {
+    display: block;
+    padding: 10px;
+    background-color: #ADD8E6;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+    font-weight: 500;
+}
+
+#quiz-form label:hover {
+    background-color: #7EB2D2;
+}
+
+/* Custom styles when radio is checked */
+input[type="radio"]:checked + label {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#navigation-buttons {
+    display: flex; /* Align children (buttons) in a row */
+    justify-content: space-between; /* Distribute space between buttons */
+    margin-bottom: 20px; /* Add some space below the button row */
+}
 
 
+select#topicSelect {
+    background-color: #2980b9;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 16px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,10'/></svg>") no-repeat 90% 50%, #2980b9; /* Adjusted Arrow Size */
+    width: 170px;
+}
+
+select#topicSelect:focus {
+    outline: none;
+}
+
+select#topicSelect:hover {
+    background-color: #0056b3;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,10'/></svg>") no-repeat 90% 50%, #0056b3; /* Adjusted Arrow Size on Hover */
+}
+
+select#topicSelect option {
+    color: #000;
+}
+
+.quiz-selection {
+    margin-bottom: 15px;
+}
+
+.quiz-selection label {
+    margin-right: 10px;
+}

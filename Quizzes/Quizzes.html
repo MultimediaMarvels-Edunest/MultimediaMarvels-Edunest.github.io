@@ -1,93 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
-        <script src="../navigation.js"></script>
-		
-    </head>
-    <body>
-    <header>
-        <div id="nav-container"></div>
-        </header>
-        
-        <section class="resources">
-            <div class="row">
-                <div class="col span-1-of-3 box side-bar">
-                    <a href="../CoursePage/CoursePage.html">Module Information</a>
-                    <a href="../Papers/Papers.html" >Past Papers</a>
-                    <a href="../Videos/Videos.html">Videos</a>
-                    <a href="../Quizzes/Quizzes.html">Quizzes</a>
-                    <a href="../CourseForum/CourseForum.html">Discussion Forums</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <script src="../navigation.js"></script>
+    <title>Quiz</title>
+</head>
+<body>
+<header>
+    <div id="nav-container"></div>
+</header>
+<section class="site-content">
+    <div class="row">
+        <div class="col span-1-of-3 box side-bar">
+            <a href="../CoursePage/CoursePage.html">Module Information</a>
+            <a href="../Papers/Papers.html">Past Papers</a>
+            <a href="../Videos/Videos.html">Videos</a>
+            <a href="../Quizzes/Quizzes.html">Quizzes</a>
+            <a href="../CourseForum/CourseForum.html">Discussion Forums</a>
+        </div>
+        <div class="col span-2-of-3 box">
+            <div class="quiz-selection">
+                <label for="topicSelect">Choose a topic:</label>
+                <select id="topicSelect">
+                    <option value="all">Data Structures</option>
+                    <option value="Linked Lists">Linked Lists</option>
+                    <option value="Algorithms">Algorithms</option>
+                    <option value="Stacks & Queues">Stacks & Queues</option>
+                </select>
+            </div>
+            <form id="quiz-form">
+                <h2>Data Structures Quiz</h2>
 
-                    
-
+                <div class="question" id="question0">
+                    <p>1. Which of the following data structures belong to linear data structures?</p>
+                    <label><input type="radio" name="q1" value="a" onclick="checkAnswer(this, 'c', 'question0')"> A) Trees</label><br>
+                    <label><input type="radio" name="q1" value="b" onclick="checkAnswer(this, 'c', 'question0')"> B) Graphs</label><br>
+                    <label><input type="radio" name="q1" value="c" onclick="checkAnswer(this, 'c', 'question0')"> C) Arrays</label><br>
+                    <label><input type="radio" name="q1" value="d" onclick="checkAnswer(this, 'c', 'question0')"> D) None of the above</label><br>
                 </div>
 
-                <div class="col span-2-of-3 box">
-                   
-                    <div class="quiz-container">
-                        <h1>Data Structures and Algorithms Quiz</h1>
-                        <br> 
-                        <form id="quiz-form">
-                            <div class="quiz-question">
-                                <label>1. What is the time complexity of quicksort?</label><br>
-                                <br> 
-                                <input type="radio" name="q1" value="O(n)"> O(n)<br>
-                                <input type="radio" name="q1" value="O(n^2)"> O(n^2)<br>
-                                <input type="radio" name="q1" value="O(n log n)"> O(n log n)<br>
-                                <div class="incorrect-feedback"></div>
-                            </div>
-                      
-                            <div class="quiz-question">
-                                <label>2. What is a stack?</label><br>
-                                <br>
-                                <input type="radio" name="q2" value="A linear data structure with Last In First Out (LIFO) order"> A linear data structure with Last In First Out (LIFO) order<br>
-                                <input type="radio" name="q2" value="A linear data structure with First In First Out (FIFO) order"> A linear data structure with First In First Out (FIFO) order<br>
-                                <input type="radio" name="q2" value="A non-linear data structure"> A non-linear data structure<br>
-                                <div class="incorrect-feedback"></div>
-                            </div>
-                          
-                            <div class="quiz-question">
-                                <label>3. What is the purpose of a hash table?</label><br>
-                                <br>
-                                <input type="radio" name="q3" value="To quickly retrieve data by a specific key"> To quickly retrieve data by a specific key<br>
-                                <input type="radio" name="q3" value="To sort data in ascending order"> To sort data in ascending order<br>
-                                <input type="radio" name="q3" value="To perform mathematical operations"> To perform mathematical operations<br>
-                                <div class="incorrect-feedback"></div>
-                            </div>
-                           
-                            <div class="pagination">
-                                <button type="button" id="prev-button">Previous</button>
-                                <button type="button" id="next-button">Next</button>
-                            </div>
-                
-                            <input type="submit" value="Submit">
-                        </form>
-                
-                        <div id="result"></div>
-                        <button id="retry-button">Retry</button>
-                    </div>
+                <div class="question" id="question1">
+                    <p>2. Which of the following algorithm has a time complexity of O(log n)?</p>
+                    <label><input type="radio" name="q2" value="a" onclick="checkAnswer(this, 'b', 'question1')"> A) Linear Search</label><br>
+                    <label><input type="radio" name="q2" value="b" onclick="checkAnswer(this, 'b', 'question1')"> B) Binary Search</label><br>
+                    <label><input type="radio" name="q2" value="c" onclick="checkAnswer(this, 'b', 'question1')"> C) Bubble Sort</label><br>
+                    <label><input type="radio" name="q2" value="d" onclick="checkAnswer(this, 'b', 'question1')"> D) Selection Sort</label><br>
+                </div>
 
-            </div>
-        </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <footer>
-            <div class="row">
-                <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
-            </div>
-        </footer>
-       
-        <script src="../Quizzes/js/Quiz.js"></script>
-    </body>
+                <div class="question" id="question2">
+                    <p>3. Which algorithm is used in the worst case scenario for quick sort to improve performance?</p>
+                    <label><input type="radio" name="q3" value="a" onclick="checkAnswer(this, 'a', 'question2')"> A) Merge Sort</label><br>
+                    <label><input type="radio" name="q3" value="b" onclick="checkAnswer(this, 'a', 'question2')"> B) Insertion Sort</label><br>
+                    <label><input type="radio" name="q3" value="c" onclick="checkAnswer(this, 'a', 'question2')"> C) Heap Sort</label><br>
+                    <label><input type="radio" name="q3" value="d" onclick="checkAnswer(this, 'a', 'question2')"> D) None of the above</label><br>
+                </div>
+
+                <div id="navigation-buttons">
+                    <button type="button" onclick="prevQuestion()" id="prev-btn" style="display:none;">Previous</button>
+                    <button type="button" onclick="nextQuestion()" id="next-btn">Next</button>
+                    <button type="button" onclick="restartQuiz()" id="restart-btn" style="display:none;">Restart</button>
+                </div>
+                <input type="submit" value="Submit" id="submit-button" style="display:none;">
+            </form>
+            <div id="result"></div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="row">
+        <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
+    </div>
+</footer>
+<script src="../Quizzes/js/Quiz.js"></script>
+</body>
 </html>

@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     /*border: 1px dashed grey;*/
-    cursor: default;
 }
 
 body,
@@ -14,7 +13,12 @@ html {
     font-size: 20px;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
-    cursor: default;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .intro {
@@ -91,6 +95,10 @@ ol {
     margin-left: 20px;
 }
 
+.paper {
+    cursor: pointer;
+}
+
 /* TODO: Side-bar */
 
 /* Enhanced Sidebar */
@@ -99,10 +107,10 @@ ol {
     display: block;
     padding: 10px 15px;
     margin-bottom: 5px;
-    background-color: #e1e1e1;
+    background-color: #2980b9;
     border-radius: 5px;
     text-decoration: none;
-    color: #333;
+    color: #fff;
     transition: background-color 0.3s ease;
     position: relative;
     font-weight: 500;
@@ -111,7 +119,7 @@ ol {
 }
 
 .side-bar a:hover {
-    background-color: #d1d1d1;
+    background-color: #0056b3;
 }
 
 
@@ -135,25 +143,52 @@ ol {
     border: 1px solid #e1e1e1;
     border-radius: 5px;
     transition: background-color 0.3s ease;
-
+    background-color: #2980b9;
 }
 
 .paper:hover {
-    background-color: #f1f1f1;
+    background-color: #0056b3;
 }
 
 .paper span:last-child {
     font-weight: 500;
-    color: #555;
+    color: #fff;
 }
 
 .paper a {
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 
 
+/* TODO: DropDown */
 
+select#resourceType {
+    background-color: #2980b9;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 16px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,10'/></svg>") no-repeat 90% 50%, #2980b9; /* Adjusted Arrow Size */
+}
+
+select#resourceType:focus {
+    outline: none;
+}
+
+select#resourceType:hover {
+    background-color: #0056b3;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='white'><polygon points='0,0 10,0 5,10'/></svg>") no-repeat 90% 50%, #0056b3; /* Adjusted Arrow Size on Hover */
+}
+
+select#resourceType option {
+    color: #000;
+}
 
 
 
@@ -184,7 +219,14 @@ ol {
     border-bottom: 2px solid #2980b9;
 }
 
+.site-content {
+    flex: 1;
+    cursor: default;
+}
 
+.filter {
+    margin-bottom: 15px;
+}
 
 /*TODO: Logo */
 
@@ -206,7 +248,7 @@ footer {
     font-size: 80%;
     padding: 20px;
     text-align: center;
-    cursor: default;
+    margin-top: 100px;
 }
 
 
@@ -228,12 +270,12 @@ footer {
     border-radius: 5px;
     text-decoration: none;
     font-size: 90%;
-    color: #000;
-    background-color: #f1f1f1;
+    color: #fff;
+    background-color: #2980b9;
     cursor: pointer;
 }
 .auth-nav li a:hover {
-    background-color: #e1e1e1;
+    background-color: #0056b3;
     transition: background-color 0.2s ease;
 }
 
@@ -314,3 +356,6 @@ button, html, input[type="button"], input[type="reset"], input[type="submit"] {
     width: 23.8%;
 }
 
+.filter label {
+    margin-right: 10px;
+}

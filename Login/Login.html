@@ -7,152 +7,85 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
         <script src="../navigation.js"></script>
-        <style>
-        
-            .error-popup {
-                display: none;
-                color: red;
-                font-size: 14px;
-            }
-    
-            /* Additional style for the "Remember Me" checkbox */
-            .remember-me {
-                display: flex;
-                align-items: center;
-                margin-top: 15px;
-            }
-    
-            .remember-me label {
-                margin-left: 10px;
-            }
-    
-            .blue-button {
-                background-color: rgb(38, 38, 114);
-                color: white; 
-                border: none;
-                padding: 10px 20px;
-                cursor: pointer;
-                border-radius: 5px;
-                transition: background-color 0.3s ease;
-            }
-    
-            .blue-button:hover {
-                background-color: darkblue;}
-        </style>
-		
+        <title>Login</title>
     </head>
-
-    .remember-me label {
-            margin-left: 10px;
-        }
-
-        .blue-button {
-            background-color: rgb(63, 63, 238);
-            color: white; 
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .blue-button:hover {
-            background-color: darkblue;}
-    </style>
-</head>
-<body>
-<div class="site-content">
-    <header>
-        <div id="nav-container"></div>
-    </header>
-    
-    <section>
-        <div class="row">
-            <h2>Please fill in the form below</h2>
+    <body>
+        <div class="site-content">
+            <header>
+                <div id="nav-container"></div>
+            </header>
+            <section>
+                <div class="row">
+                    <h2>Welcome to EduNest</h2>
+                </div>
+                <form class="contact-form" id="loginForm" onsubmit="return validateLoginForm();" action="../Home/index.html">
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="email" name="email" id="email" placeholder="Enter your TUKS email address" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+                    <!-- Remember Me checkbox -->
+                    <div class="row">
+                        <div class="col span-1-of-3"></div>
+                        <div class="col span-2-of-3 remember-me">
+                            <input type="checkbox" id="remember-me" name="remember-me">
+                            <label for="remember-me">Remember Me</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3"></div>
+                        <div class="sbtn2 col span-2-of-3">
+                            <input type="submit" class="sbtn" value="Login">
+                        </div>
+                    </div>
+                </form>
+            </section>
         </div>
-        <div class="row">
-            <!-- <form method="post" action="../Home/index.html" class="contact-form" onsubmit="return validateForm()"> -->
-                <div class="row">
-                    <div class="col span-1-of-3">
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="col span-2-of-3">
-                        <input type="email" name="email" id="email" placeholder="Enter your email address" required>
-                        <div id="email-error" class="error-popup">Invalid email address</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col span-1-of-3">
-                        <label for="password">Password</label>
-                    </div>
-                    <div class="col span-2-of-3">
-                        <input type="password" name="password" id="password" placeholder="Choose a strong password" required>
-                        <div id="password-error" class="error-popup">Password must be at least 8 characters long</div>
-                    </div>
-                </div>
-                
-                <!-- Remember Me checkbox -->
-                <div class="row">
-                    <div class="col span-1-of-3"></div>
-                    <div class="col span-2-of-3 remember-me">
-                        <input type="checkbox" id="remember-me" name="remember-me">
-                        <label for="remember-me">Remember Me</label>
-                    </div>
-                </div>
+        <footer>
+            <div class="row">
+                <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
+            </div>
+        </footer>
+        <script>
+            function validateLoginForm() {
+                // Get the email and password input elements
+                const emailInput = document.getElementById("email");
+                const passwordInput = document.getElementById("password");
 
-                <input type="hidden" name="redirect_to_home" value="1">
-                <div class="row">
-                    <div class="col span-1-of-3"></div>
-                    <div class="sbtn2 col span-2-of-3">
-                        <a href="../Home/index.html">
-                        <input type="submit" class="sbtn blue-button" onclick="validateForm()" value="Send It!" >
+                // Regular expressions for email and password validation
+                const emailPattern = /^[a-zA-Z]\d{8}@tuks\.co\.za$/;
+                const passwordPattern = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
 
-                        </a>
-                    </div>
-                </div>
-            <!-- </form> -->
-        </div>
-    </section>
-</div>
-<footer>
-    <div class="row">
-        <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
-    </div>
-</footer>
+                // Check if email and password match the patterns
+                if (!emailPattern.test(emailInput.value)) {
+                    alert("Invalid email format. It should be in the format: A letter, followed by 8 numbers and @tuks.co.za e.g. u12345678@tuks.co.za");
+                    return false; // Prevent form submission
+                }
 
-<script defer>
-    window.onload = () => {
-        document.getElementsByClassName("main-nav")[0].style.display = "none";
-        document.getElementsByClassName("auth-nav")[0].getElementsByTagName("li")[0].style.display = "none"
-        
+                if (!passwordPattern.test(passwordInput.value)) {
+                    alert("Password must contain at least 8 characters with at least one uppercase letter and one number.");
+                    return false; // Prevent form submission
+                }
 
-        // document.location = "../Home/index.html";
-    };
+                // If both criteria are met, allow form submission
+                return true;
+            }
 
-    function validateForm() {
-        
-        document.getElementById('email-error').style.display = 'none';
-        document.getElementById('password-error').style.display = 'none';
-
-        
-        const email = document.getElementById('email').value;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            document.getElementById('email-error').style.display = 'block';
-            return false;
-        }
-
-        
-        const password = document.getElementById('password').value;
-        if (password.length < 8) {
-            document.getElementById('password-error').style.display = 'block';
-            return false;
-        }
-
-        document.location = "../Home/index.html";
-        console.log('What!!!')
-        return false;
-    }
-</script>
-</body>
+            window.onload = () => {
+                document.getElementsByClassName("main-nav")[0].style.display = "none";
+                document.getElementsByClassName("auth-nav")[0].style.display = "none"
+            };
+        </script>
+    </body>
 </html>

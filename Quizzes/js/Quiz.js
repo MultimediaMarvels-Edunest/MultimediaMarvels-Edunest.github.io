@@ -1,102 +1,144 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var currentQuestion = 0;
-    var quizQuestions = document.querySelectorAll('.quiz-question');
-    var prevButton = document.getElementById('prev-button');
-    var nextButton = document.getElementById('next-button');
-    var submitButton = document.querySelector('#quiz-form input[type="submit"]');
+let currentQuestionIndex = 0;
 
-    function showQuestion(index) {
-        quizQuestions.forEach(function(question, i) {
-            if (i === index) {
-                question.style.display = 'block';
-            } else {
-                question.style.display = 'none';
-            }
-        });
+document.getElementById('quiz-form').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-        if (index === 0) {
-            prevButton.disabled = true;
-        } else {
-            prevButton.disabled = false;
+    const questions = document.getElementsByClassName('question');
+    let score = 0;
+    const correctAnswers = ["c", "b", "a"]; // You can modify the correct answers here
+
+    Array.from(questions).forEach((question, index) => {
+        const questionNumber = index + 1;
+        const selectedAnswer = document.querySelector(`input[name="q${questionNumber}"]:checked`);
+
+        if (selectedAnswer && selectedAnswer.value === correctAnswers[index]) {
+            score++;
         }
+    });
 
-        if (index === quizQuestions.length - 1) {
-            nextButton.style.display = 'none';
-            submitButton.style.display = 'block';
-        } else {
-            nextButton.style.display = 'block';
-            submitButton.style.display = 'none';
-        }
+    const totalQuestions = questions.length;
+    const scorePercentage = (score / totalQuestions) * 100;
+
+    const result = document.getElementById('result');
+    result.style.display = 'block';
+    result.textContent = `You scored ${score} out of ${totalQuestions}. Your percentage is ${scorePercentage.toFixed(2)}%.`;
+
+    // Remove previous classes before adding new one
+    result.classList.remove('success', 'fail');
+
+    if (scorePercentage === 100) { // If the score is 100%, apply the 'success' class
+        result.classList.add('success');
+    } else if (scorePercentage >= 70) {
+        result.classList.add('success');
+    } else {
+        result.classList.add('fail');
     }
 
-    showQuestion(currentQuestion);
-
-    prevButton.addEventListener('click', function() {
-        currentQuestion--;
-        showQuestion(currentQuestion);
-    });
-
-    function output(){
-        const htmlCode = `<p>This is a generated HTML page.</p>`;
-        // Do something with the generated HTML code...
-    }
-
-    nextButton.addEventListener('click', function() {
-        output();
-        currentQuestion++;
-        showQuestion(currentQuestion);
-    });
-
-window.onload = () => {
-    document.getElementsByClassName("auth-nav")[0].style.display = "none";
-};
-
-document.getElementById('quiz-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-        var score = 0;
-        var answers = ['O(n log n)', 'A linear data structure with Last In First Out (LIFO) order', 'To quickly retrieve data by a specific key'];
-
-        for(var i = 1; i <= answers.length; i++) {
-            var userAnswer = document.querySelector('input[name="q'+i+'"]:checked');
-            if(userAnswer) {
-                if(userAnswer.value === answers[i-1]) {
-                    score++;
-                }
-                else {
-                    var feedback = userAnswer.parentElement.querySelector('.incorrect-feedback');
-                    feedback.textContent = 'Incorrect';
-                    userAnswer.parentElement.classList.add('incorrect-answer');
-                }
-            }
-        }
-
-        var result = document.getElementById('result');
-        result.textContent = 'You scored ' + score + ' out of ' + answers.length;
-
-        result.style.color = (score === answers.length) ? 'green' : 'red';
-
-        var retryButton = document.getElementById('retry-button');
-        retryButton.style.display = 'block';
-    });
-
-    document.getElementById('retry-button').addEventListener('click', function() {
-        var result = document.getElementById('result');
-        result.textContent = '';
-
-        var retryButton = document.getElementById('retry-button');
-        retryButton.style.display = 'none';
-
-        var quizQuestions = document.querySelectorAll('.quiz-question');
-        quizQuestions.forEach(function(question) {
-            question.classList.remove('incorrect-answer');
-            var feedback = question.querySelector('.incorrect-feedback');
-            feedback.textContent = '';
-        });
-
-        var form = document.getElementById('quiz-form');
-        form.reset();
-
-        currentQuestion = 0;
-        showQuestion(0);  // Display the first question
-    });
+    document.getElementById('restart-btn').style.display = 'block';
 });
+
+
+function nextQuestion() {
+    if (currentQuestionIndex < 2) {
+        currentQuestionIndex++;
+        showQuestion(currentQuestionIndex);
+    }
+}
+
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showQuestion(currentQuestionIndex);
+    }
+}
+
+
+
+// Initial question display
+showQuestion(currentQuestionIndex);
+
+// New function to check the answer and apply styles
+
+// New function to determine if a question has been answered
+function isQuestionAnswered(index) {
+    const question = document.getElementsByClassName('question')[index];
+    const radios = question.getElementsByTagName('input');
+    for (let radio of radios) {
+        if (radio.checked) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function showQuestion(index) {
+    const questions = document.getElementsByClassName('question');
+    for (let i = 0; i < questions.length; i++) {
+        questions[i].style.display = 'none';
+    }
+    questions[index].style.display = 'block';
+    updateNavigationButtons();
+}
+
+function restartQuiz() {
+    document.getElementById('result').style.display = 'none';
+    document.getElementById('restart-btn').style.display = 'none';
+    document.getElementById('quiz-form').reset();
+    const questions = document.getElementsByClassName('question');
+    Array.from(questions).forEach(question => {
+        const labels = question.getElementsByTagName('label');
+        Array.from(labels).forEach(label => {
+            label.style.color = '';
+            const radios = label.getElementsByTagName('input');
+            Array.from(radios).forEach(radio => {
+                radio.disabled = false;
+            });
+        });
+    });
+    currentQuestionIndex = 0;
+    showQuestion(currentQuestionIndex);
+}
+
+function checkAnswer(element, correctAnswer, questionId) {
+    const parentQuestion = document.getElementById(questionId);
+    const labels = parentQuestion.getElementsByTagName('label');
+    for (let i = 0; i < labels.length; i++) {
+        const radio = labels[i].getElementsByTagName('input')[0];
+        radio.disabled = true;
+        if (radio.value === correctAnswer) {
+            labels[i].style.color = 'green';
+        } else if (radio.checked) {
+            labels[i].style.color = 'red';
+        }
+    }
+}
+
+function updateNavigationButtons() {
+    document.getElementById('prev-btn').style.display = currentQuestionIndex === 0 ? 'none' : 'block';
+    document.getElementById('next-btn').style.display = currentQuestionIndex === 2 ? 'none' : 'block';
+    document.getElementById('submit-button').style.display = currentQuestionIndex === 2 ? 'block' : 'none';
+}
+
+document.getElementById('topicSelect').addEventListener('change', function (e) {
+    const selectedTopic = e.target.value;
+    const heading = document.querySelector('#quiz-form h2');
+
+    switch (selectedTopic) {
+        case 'all':
+            heading.textContent = 'Data Structures Quiz';
+            break;
+        case 'Linked Lists':
+            heading.textContent = 'Linked Lists Quiz';
+            break;
+        case 'Algorithms':
+            heading.textContent = 'Algorithms Quiz';
+            break;
+        case 'Stacks & Queues':
+            heading.textContent = 'Stacks & Queues Quiz';
+            break;
+        default:
+            heading.textContent = 'Data Structures and Algorithms Quiz';
+            break;
+    }
+});
+

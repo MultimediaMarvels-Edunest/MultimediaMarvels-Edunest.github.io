@@ -37,6 +37,10 @@ body {
     margin-bottom: 20px;
 }
 
+.filter {
+    margin-bottom: 15px;
+}
+
 /* Reusable components */
 
 img {
@@ -121,19 +125,12 @@ p {
     flex: 1;
     background-color: #F5F5F5 ; /* light green background */
     border-radius: 10px; /* slightly curved edges */
-    display: block; /* make the entire tile clickable */
     text-decoration: none; /* remove the underline from the hyperlink */
-    transition: transform 0.3s, box-shadow 0.3s; /* smooth transitions for hover effects */
     text-align: center;
 }
 
 .content h3, .content li {
     margin-bottom: 20px;
-}
-
-.box:hover {
-    transform: translateY(-10px); /* slight lift effect on hover */
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1); /* shadow on hover */
 }
 
 .resource-image {
@@ -195,13 +192,13 @@ p {
     border-radius: 5px;
     text-decoration: none;
     font-size: 90%;
-    color: #000;
-    background-color: #f1f1f1;
+    color: #fff;
+    background-color: #2980b9;
     cursor: pointer;
 }
 
 .auth-nav li a:hover {
-    background-color: #e1e1e1;
+    background-color: #0056b3;
     transition: background-color 0.2s ease;
 }
 
@@ -224,6 +221,7 @@ footer {
     padding: 20px;
     text-align: center;
     cursor: default;
+    margin-top: 100px;
 }
 
 /* content */
@@ -238,7 +236,7 @@ footer {
     display: inline-block;
     padding: 15px 30px;
     background-color: #2980b9; /* Change to your preferred color */
-    color: #ffffff; /* White text color */
+    color: #fff; /* White text color */
     font-size: 18px; /* Change font size if necessary */
     font-weight: 400;
     border: none;

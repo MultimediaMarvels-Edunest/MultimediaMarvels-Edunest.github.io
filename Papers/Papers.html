@@ -7,56 +7,96 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
         <script src="../navigation.js"></script>
-		
+		<title>Papers</title>
     </head>
     <body>
         <header>
             <div id="nav-container"></div>
         </header>
-        
-        <section class="resources">
-            <div class="row">
-                <div class="col span-1-of-3 box side-bar">
-                    <a href="../CoursePage/CoursePage.html">Module Information</a>
-                    <a href="../Papers/Papers.html" >Past Papers</a>
-                    <a href="../Videos/Videos.html">Videos</a>
-                    <a href="../Quizzes/Quizzes.html">Quizzes</a>
-                    <a href="../CourseForum/CourseForum.html">Discussion Forums</a>
+        <div class="site-content">
+            <section class="resources">
+                <div class="row">
+                    <div class="col span-1-of-3 box side-bar">
+                        <a href="../CoursePage/CoursePage.html">Module Information</a>
+                        <a href="../Papers/Papers.html" >Past Papers</a>
+                        <a href="../Videos/Videos.html">Videos</a>
+                        <a href="../Quizzes/Quizzes.html">Quizzes</a>
+                        <a href="../CourseForum/CourseForum.html">Discussion Forums</a>
+                    </div>
+                    <div class="col span-2-of-3 past-papers box">
+                        <div class="filter">
+                            <label for="resourceType">Filter by resource type: </label>
+                            <select id="resourceType">
+                                <option value="all">All</option>
+                                <option value="class-tests">Class Tests</option>
+                                <option value="exams">Exams</option>
+                                <option value="semester-tests">Semester Tests</option>
+                            </select>
+                        </div>
+                        <div id="class-tests" class="paper-section box">
+                            <h3>Class tests</h3>
+                            <div class="paper" onclick="window.location='https://explorestudyspace.netlify.app/resources/resource.pdf';">
+                                <a href="https://explorestudyspace.netlify.app/resources/resource.pdf">Class Test 1</a> <span>2012</span>
+                            </div>
+                            <div class="paper" onclick="window.location='https://explorestudyspace.netlify.app/resources/resource.pdf';">
+                                <a href="https://explorestudyspace.netlify.app/resources/resource.pdf">Class Test 2</a> <span>2012</span>
+                            </div>
+                            <div class="paper" onclick="window.location='https://explorestudyspace.netlify.app/resources/resource.pdf';">
+                                <a href="https://explorestudyspace.netlify.app/resources/resource.pdf">Class Test 3</a> <span>2012</span>
+                            </div>
+                        </div>
+
+                        <div id="exams" class="paper-section box">
+                            <h3>Exams</h3>
+                            <div class="paper" onclick="window.location='https://explorestudyspace.netlify.app/resources/resource.pdf';">
+                                <a href="https://explorestudyspace.netlify.app/resources/resource.pdf">Exam</a> <span>2008</span>
+                            </div>
+                            <div class="paper" onclick="window.location='https://explorestudyspace.netlify.app/resources/resource.pdf';">
+                                <a href="https://explorestudyspace.netlify.app/resources/resource.pdf">Exam</a> <span>2011</span>
+                            </div>
+                            <div class="paper" onclick="window.location='https://explorestudyspace.netlify.app/resources/resource.pdf';">
+                                <a href="https://explorestudyspace.netlify.app/resources/resource.pdf">Exam</a> <span>2013</span>
+                            </div>
+                        </div>
+
+                        <div id="semester-tests" class="paper-section box">
+                            <h3>Semester Tests</h3>
+                            <div class="paper" onclick="window.location='https://explorestudyspace.netlify.app/resources/resource.pdf';">
+                                <a href="https://explorestudyspace.netlify.app/resources/resource.pdf">Semester Test 1</a> <span>2014</span>
+                            </div>
+                            <div class="paper" onclick="window.location='https://explorestudyspace.netlify.app/resources/resource.pdf';">
+                                <a href="https://explorestudyspace.netlify.app/resources/resource.pdf">Semester Test 2</a> <span>2014</span>
+                            </div>
+                            <div class="paper" onclick="window.location='https://explorestudyspace.netlify.app/resources/resource.pdf';">
+                                <a href="https://explorestudyspace.netlify.app/resources/resource.pdf">Semester Test 2</a> <span>2016</span>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="col span-2-of-3 box past-papers">
-                    <div class="paper-section">
-                        <h3>Class tests</h3>
-                        <div class="paper"><a href="#">Class Test 1</a> <span>2012</span></div>
-                        <div class="paper"><a href="#">Class Test 2</a> <span>2012</span></div>
-                        <div class="paper"><a href="#">Class Test 3</a> <span>2012</span></div>
-                    </div>
-
-                    <div class="paper-section">
-                        <h3>Exams</h3>
-                        <div class="paper"><a href="#">Exam</a> <span>2008</span></div>
-                        <div class="paper"><a href="#">Exam</a> <span>2011</span></div>
-                        <div class="paper"><a href="#">Exam</a> <span>2013</span></div>
-                    </div>
-
-                    <div class="paper-section">
-                        <h3>Semester Tests</h3>
-                        <div class="paper"><a href="#">Semester Test 1</a> <span>2014</span></div>
-                        <div class="paper"><a href="#">Semester Test 2</a> <span>2014</span></div>
-                        <div class="paper"><a href="#">Semester Test 2</a> <span>2016</span></div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
+            </section>
+        </div>
         <footer>
             <div class="row">
                 <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
             </div>
         </footer>
-        <script defer>
-            window.onload = () => {
-                document.getElementsByClassName("auth-nav")[0].style.display = "none";
-            };
+        <script>
+            document.getElementById('resourceType').addEventListener('change', function(e) {
+                var selectedType = e.target.value;
+                var sections = document.getElementsByClassName('paper-section');
+
+                for (var i = 0; i < sections.length; i++) {
+                    var section = sections[i];
+
+                    if (selectedType === 'all' || section.id === selectedType) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                }
+            });
         </script>
     </body>
 </html>
