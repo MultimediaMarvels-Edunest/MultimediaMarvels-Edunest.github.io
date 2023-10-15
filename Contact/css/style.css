@@ -319,6 +319,10 @@ ul {
     padding: 0;
 }
 
+.reasons {
+    width: 60%;
+}
+
 li {
     margin-bottom: 10px;
 }
