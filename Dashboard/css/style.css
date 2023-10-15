@@ -353,3 +353,37 @@ button, html, input[type="button"], input[type="reset"], input[type="submit"] {
 .user-data ul li:last-child, .user-profile ul li:last-child {
     border-bottom: none;
 }
+
+
+/* Loading overlay */
+
+#loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.user-details {
+    position: relative;
+}
+
+#loading-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#loading-icon i {
+    font-size: 50px;
+}
+
+
+

@@ -14,7 +14,6 @@
         <header>
             <div id="nav-container"></div>
 		</header>
-        
         <section class="user-profile">
             <div class="row">
                 <div class="user-avatar col span-1-of-4">
@@ -23,6 +22,10 @@
                 </div>
 
                 <div class="user-details col span-3-of-4">
+                    <div id="loading-overlay">
+                        <div id="loading-text">Fetching data from University of Pretoria database</div>
+                        <div id="loading-icon"><i class="fas fa-spinner fa-spin"></i></div>
+                    </div>
                     <h3>Student Details</h3>
                     <p>Name: Sibusiso</p>
                     <p>Surname: Van Der Merwe</p>
@@ -52,6 +55,13 @@
                 <p> Copyright &copy; 2023 by Multimedia Marvels. All rights reserved. </p>
                 <p>Find the developers details <a href="../Creators/Creators.html">here</a></p>
             </div>
-        </footer>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            setTimeout(() => {
+                document.getElementById('loading-overlay').style.display = 'none';
+            }, 5000);
+        });
+    </script>
     </body>
 </html>
