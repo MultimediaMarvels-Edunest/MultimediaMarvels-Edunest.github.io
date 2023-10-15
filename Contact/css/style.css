@@ -118,13 +118,13 @@ h3 {
     border-radius: 5px;
     text-decoration: none;
     font-size: 90%;
-    color: #000;
-    background-color: #f1f1f1;
+    color: #fff;
+    background-color: #2980b9;
     
 }
 
 .auth-nav li a:hover {
-    background-color: #e1e1e1;
+    background-color: #0056b3;
     transition: background-color 0.2s ease;
 }
 
