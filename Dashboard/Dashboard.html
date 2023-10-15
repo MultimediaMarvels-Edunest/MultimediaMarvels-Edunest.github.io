@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
         <script src="../navigation.js"></script>
-		
+
     </head>
     <body>
     <div class="site-content">
@@ -17,8 +17,9 @@
         <section class="user-profile">
             <div class="row">
                 <div class="user-avatar col span-1-of-4">
-                    <img src="../Home/img/image7.jpg" alt="User Image">
-                    <button>Change Image</button>
+                    <img id="profile-pic" src="../Home/img/image7.jpg" alt="User Image">
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;" onchange="previewImage(event)">
+                    <button onclick="document.getElementById('imageInput').click();">Change Image</button>
                 </div>
 
                 <div class="user-details col span-3-of-4">
@@ -62,6 +63,33 @@
                 document.getElementById('loading-overlay').style.display = 'none';
             }, 5000);
         });
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            setTimeout(() => {
+                document.getElementById('loading-overlay').style.display = 'none';
+            }, 3000);
+
+            // Load the saved profile picture from local storage
+            const savedImage = localStorage.getItem('profilePic');
+            if (savedImage) {
+                document.getElementById('profile-pic').src = savedImage;
+            }
+        });
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const profilePic = document.getElementById('profile-pic');
+                    profilePic.src = e.target.result;
+
+                    // Save the selected image in local storage
+                    localStorage.setItem('profilePic', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        }
     </script>
     </body>
 </html>
