@@ -28,6 +28,10 @@
         </div>
         <br>
         <div class="row">
+            <div id="success-message" style="display: none;">
+                Your message has been sent successfully!
+            </div>
+
             <form method="post" action="" class="contact-form">
                 <div class="row">
                     <div class="col span-1-of-3">
@@ -65,5 +69,29 @@
         <p>Find the developers details <a href="../Creators/Creators.html">here</a></p>
     </div>
 </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.contact-form');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // You can add an AJAX request here to send the form data to the server
+
+            // Display the success message
+            const successMessage = document.getElementById('success-message');
+            successMessage.style.display = 'block';
+
+            // Clear the form fields
+            form.reset();
+
+            // Hide the success message after a few seconds
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 3000);
+        });
+    });
+
+</script>
 </body>
 </html>
