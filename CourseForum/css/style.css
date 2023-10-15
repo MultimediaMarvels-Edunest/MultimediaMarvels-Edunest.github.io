@@ -439,3 +439,55 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
+.searchbar {
+    float: left;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.searchbar input[type="search"] {
+    padding: 10px 40px 10px 15px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.searchbar input[type="search"]:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-color: #999;
+}
+
+.search-icon {
+    position: absolute; /* Changed from relative to absolute */
+    right: 20px; /* Added this line to position it at the right inside the search bar */
+    top: 48%; /* Keeps it vertically centered */
+    transform: translateY(-50%); /* To perfectly center it vertically */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+}
+
+.search-icon:hover {
+    color: #666;
+}
+
+.icon-button, .searchbar input[type="submit"] { /* Necessary? */
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="search"] {
+	/*-webkit-appearance: textfield;*/
+	box-sizing: content-box;
+}
